@@ -1,0 +1,170 @@
+:root {
+    --card-size: 15vw;
+    --red-color: red;
+    --green-color: rgb(7, 168, 7);
+    --grey-color: #EDEDED;
+    --dark-color: #343a40;
+}
+
+html, body {
+    margin: 0;
+    font: 18px/1.5 sans-serif;
+}
+
+/********** NAVBAR **********/
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    background-color: var(--dark-color);
+    z-index: 2;
+}
+
+#navbar > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#navbar .logo, #navbar .log-content {
+    width: 150px;
+    justify-content: space-evenly;
+}
+
+#navbar .link-content {
+    flex-grow: 1;
+    align-items: unset;
+}
+
+#navbar .link-content > div {
+    height: 100%;
+    padding: 0 15px;
+    background: var(--dark-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: .5s;
+}
+#navbar .link-content > div:hover {
+    height: max-content;
+}
+
+#navbar .link-content ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+
+}
+#navbar .link-content > div ul:first-child {
+    height: 70px;
+    margin: 0;
+}
+
+#navbar a {
+    text-decoration: unset;
+    color: #FFF;
+    opacity: .7;
+    transition: .2s;
+}
+#navbar a:hover {
+    opacity: 1;
+}
+/********** FIN NAVBAR **********/
+
+.list-title {
+    display: flex;
+    align-items: center;
+}
+
+.button-new {
+    color: #FFF;
+    text-decoration: unset;
+    padding: 5px 20px;
+    background-color: var(--green-color);
+    border: 1px solid var(--green-color);
+    border-radius: 20px;
+    margin-left: 20px;
+    transition: .5s;
+}
+.button-new:hover {
+    color: var(--green-color);
+    background-color: #FFF;
+}
+
+/********** CARDS CONTAINER **********/
+#cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    width: var(--card-size);
+    height: calc(var(--card-size) * 1.3);
+    background-color: var(--grey-color);
+    border-radius: 20px;
+    margin-bottom: 3vh;
+    box-shadow: 5px 5px 10px gray;
+    overflow: hidden;
+}
+
+.card > a {
+    color: #000;
+    text-decoration: unset;
+}
+
+.card .card-name {
+    height: 20%;
+    text-align: center;
+}
+
+.card .card-name p {
+    margin: 0;
+}
+
+.card .card-name p:nth-child(2) {
+    opacity: .5;
+}
+
+.card .card-image {
+    height: 80%;
+}
+
+.card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .card-infos {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 22%;
+}
+
+.card .card-infos p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--card-size) * .22);
+    height: calc(100% - 20px);
+    color: #FFF;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+.card .card-infos p.life {
+    background-color: var(--green-color);
+}
+.card .card-infos p.attack {
+    background-color: var(--red-color);
+}
+/********** FIN CARDS CONTAINER **********/

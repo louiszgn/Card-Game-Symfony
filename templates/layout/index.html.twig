@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <div class="list-title"><h1>{{ title }}</h1>
+
+    {# Liste des cartes #}
+    {% if cards is defined %}
+        <a class="button-new" href="{{ path('add_card') }}">Nouvelle carte</a></div>
+
+        <div id="cards-container">
+        {% for card in cards %}
+            <div class="card"><a href="{{ path('card_show', {'id': card.id}) }}">
+                <div class="card-name">
+                    <p>{{ card.name }}</p>
+                    {% if card.faction %}
+                        <p>{{ card.Faction.factionName }}</p>
+                    {% endif %}
+                </div>
+                <div class="card-image">
+                    <img src="cards/{{ card.id }}.jpg">
+                </div>
+                <div class="card-infos">
+                    <p class="life">{{ card.life }}</p>
+                    <p class="attack">{{ card.attack }}</p>
+                </div>
+                {# <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
+                <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a> #}
+            </a></div>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    {# Liste des factions #}
+    {% if factions is defined %}
+        <a class="button-new" href="{{ path('add_faction') }}">Nouvelle faction</a></div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for faction in factions %}
+                <tr>
+                    <td>{{ faction.id }}</td>
+                    <td>{{ faction.factionName }}</td>
+                        {# <a href="{{ path('faction_show', {'id': faction.id}) }}">show</a>
+                        <a href="{{ path('faction_edit', {'id': faction.id}) }}">edit</a> #}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
