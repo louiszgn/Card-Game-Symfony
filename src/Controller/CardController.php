@@ -65,7 +65,10 @@ class CardController extends AbstractController
     public function showCard(Card $card)
     {
         return $this->render('layout/details.html.twig', [
-            'card' => $card,
+            'cards' => $card,
+            'title' => 'Carte',
+            'label' => 'Ajouter une carte',
+            'card' => true
         ]);
     }
 
