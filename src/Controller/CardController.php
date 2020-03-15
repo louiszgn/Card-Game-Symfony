@@ -90,6 +90,9 @@ class CardController extends AbstractController
 
         return $this->render('layout/form.html.twig', [
             'form' => $form->createView(),
+            'title' => 'Cartes',
+            'label' => 'Modifier une carte',
+            'card' => true
         ]);
     }
 
